@@ -9,7 +9,13 @@ public class BasicStringUtils {
      * @return string with identical content, and the first character capitalized
      */
     public static String camelCase(String str) {
-        return null;
+
+        char array [] = str.toCharArray();
+
+        array[0] = Character.toUpperCase(array[0]);
+        String string = new String(array);
+
+        return string;
     }
 
     /**
@@ -17,7 +23,12 @@ public class BasicStringUtils {
      * @return string with identical contents, in the reverse order
      */
     public static String reverse(String str) {
-        return null;
+        String reverse = "";
+        StringBuilder string = new StringBuilder(str);
+        string = string.reverse();
+        reverse = string.toString();
+
+        return reverse;
     }
 
     /**
@@ -25,7 +36,10 @@ public class BasicStringUtils {
      * @return string with identical contents, in reverse order, with first character capitalized
      */
     public static String reverseThenCamelCase(String str) {
-        return null;
+        String reversestr = reverse(str);
+        reversestr = camelCase(reversestr);
+
+        return reversestr;
     }
 
 
@@ -34,7 +48,12 @@ public class BasicStringUtils {
      * @return string with identical contents excluding first and last character
      */
     public static String removeFirstAndLastCharacter(String str) {
-        return null;
+        String removeChar = "";
+        for(int i =1; i < str.length()-1; i++)
+        {
+            removeChar += str.charAt(i) + "";
+        }
+        return removeChar;
     }
 
     /**
@@ -42,6 +61,28 @@ public class BasicStringUtils {
      * @return string with identical characters, each with opposite casing
      */
     public static String invertCasing(String str) {
-        return null;
+
+        String inverted = "";
+
+        for(int i = 0; i<str.length(); i++)
+        {
+            if(str.charAt(i) == 32)
+            {
+                inverted += str.charAt(i);
+            }
+            else if(str.charAt(i) < 97)
+            {
+                String cc = str.charAt(i) + "";
+                cc = cc.toLowerCase();
+                inverted += cc;
+            }
+            else
+            {
+                String cc = str.charAt(i) + "";
+                cc = cc.toUpperCase();
+                inverted += cc;
+            }
+        }
+        return inverted;
     }
 }
