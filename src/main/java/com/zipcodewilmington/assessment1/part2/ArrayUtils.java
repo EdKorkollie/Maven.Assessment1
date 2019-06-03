@@ -1,5 +1,8 @@
 package com.zipcodewilmington.assessment1.part2;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Stream;
+import java.io.*;
 
 
 /**
@@ -32,16 +35,20 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        //objectArray = ArrayUtils.(objectArray, objectToRemove);
+        ArrayList<Object> arr = new ArrayList<>();
+
 
         for(int i = 0; i< objectArray.length; i++)
         {
-            if(objectArray[i] == objectToRemove)
+            if(objectArray[i] != objectToRemove)
             {
-                objectArray[i] = objectArray[i + 1];
+                arr.add(objectArray[i]);
             }
         }
-        return null;
+
+        Integer[] remove = new Integer[arr.size()];
+        remove = arr.toArray(remove);
+        return remove;
     }
 
     /**
@@ -50,6 +57,13 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
+
+        ArrayList<Object> arr = new ArrayList<>();
+
+        for(int i = 0; i < objectArray.length; i++)
+        {
+
+        }
 
         return null;
     }
@@ -71,6 +85,29 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        return null;
+
+
+            return Stream.of(objectArray, objectArrayToAdd).flatMap(Stream:: of).toArray();
     }
 }
+
+
+/**
+ ArrayList<Object> arr = new ArrayList<>();
+ Object[] added = new Object[objectArray.length + objectArrayToAdd.length];
+ ArrayList<Object> arr1Add = new ArrayList<>();
+
+ int count = 0;
+ for(int i = 0; i<objectArray.length; i++)
+ {
+ added[i] = objectArray[i];
+ count++;
+ }
+ for(int j = 0; j < objectArrayToAdd.length; j++)
+ {
+ added[count++] = objectArrayToAdd[j];
+ }
+ Integer[] merge = new Integer[arr1Add.size()];
+ merge = arr1Add.toArray(merge);
+ for(int i = 0; i < added.length; i++);
+ */
